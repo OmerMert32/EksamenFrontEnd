@@ -8,8 +8,8 @@ import {
 
 window.addEventListener("load", async () => {
 
-    const templateCreate = await loadHtml("test.html")
-    const templateNotFound = await loadHtml("test.html")
+
+    //const templateNotFound = await loadHtml("notfound/notfound.html")
 
     adjustForMissingHash()
 
@@ -26,7 +26,7 @@ window.addEventListener("load", async () => {
             "/":(match) =>{
 
             },
-            "/test": (match) => {renderTemplate(templateCreate, "content-page")
+            "/": (match) => {renderTemplate(templateCreate, "content-page")
 
             },
 

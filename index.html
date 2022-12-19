@@ -5,9 +5,32 @@
     <title>Title</title>
 </head>
 <body>
-<li class="input">
-    <p class="p" href="/products" data-navigo>Home</p>
-</li>
+    <div id="topnav">
+            <div class="dropdown">
+                <button class="dropbtn">Hjem</button>
+                <div class="dropdown-content">
+                    <a href="/showMyDeliveries">Vis mine leveringer</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Produkter</button>
+                <div class="dropdown-content">
+                    <a href="/showProduct">Vis produkter</a>
+                    <a href="/addProduct">Tilføj produkter</a>
+                    <a href="/editProducts">Rediger produkter</a>
+                    <a href="/showSpecProduct">Vis specifik produkt</a>
+                    <a href="/deleteProduct">Slet produkt</a>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Leveringer</button>
+                <div class="dropdown-content">
+                    <a href="/showDeliveries">Vis leveringer</a>
+                    <a href="/addDelivery">Tilføj levering</a>
+                </div>
+            </div>
+    </div>
 
 
 <div id="content"></div>
