@@ -7,6 +7,7 @@ import {initShowProducts} from "./product/showProducts/showProducts.js";
 import {initAddProduct} from "./product/addProduct/addProduct.js";
 import {initEditProduct} from "./product/editProduct/editProduct.js";
 import {initSpecefikProduct} from "./product/specifikProduct/specifikProduct.js";
+import {initDeleteProduct} from "./product/deleteProduct/deleteProduct.js";
 
 
 window.addEventListener("load", async () => {
@@ -16,6 +17,7 @@ window.addEventListener("load", async () => {
     const templateAddProduct = await loadHtml("product/addProduct/addProduct.html")
     const templateEditProduct = await loadHtml("product/editProduct/editProduct.html")
     const templateSpecifikProdukt = await loadHtml("product/specifikProduct/specifikProduct.html")
+    const templateDeleteProduct = await loadHtml("product/deleteProduct/deleteProduct.html")
     //const templateNotFound = await loadHtml("notfound/notfound.html")
 
     adjustForMissingHash()
@@ -45,7 +47,9 @@ window.addEventListener("load", async () => {
             "/showSpecProduct": (match) => {renderTemplate(templateSpecifikProdukt, "content")
                 initSpecefikProduct();
             },
-
+            "/deleteProduct": (match) => {renderTemplate(templateDeleteProduct, "content")
+                initDeleteProduct()
+            },
         })
         .notFound(() => {
             renderTemplate(templateNotFound, "content")

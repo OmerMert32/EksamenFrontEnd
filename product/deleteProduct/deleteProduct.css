@@ -1,7 +1,5 @@
-#specifik-product{
+#delete-product-page{
     margin-top: 5%;
-}
-#search{
     text-align: center;
 }
 
@@ -24,4 +22,8 @@
 .th,td {
     padding: 12px 15px;
     border-bottom: 1px solid grey;
+}
+
+#delete-button{
+    margin-top: 2%;
 }

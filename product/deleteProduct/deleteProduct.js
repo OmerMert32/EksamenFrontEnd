@@ -1,5 +1,5 @@
 
-export function initSpecefikProduct(){
+export function initDeleteProduct(){
     hideDiv()
     showDiv()
 }
@@ -7,21 +7,21 @@ const URL = "http://localhost:8080/product"
 
 
 function hideDiv(){
-    document.getElementById("table").style = "display:none"
+    document.getElementById("delete-product").style = "display:none"
 }
 
 function showDiv(){
-        document.getElementById("find-button").onclick = async function(){
+    document.getElementById("find-button").onclick = async function(){
 
-            await loadTable()
+        await loadTable()
 
-            document.getElementById("table").style = "display"
+        document.getElementById("delete-product").style = "display"
     }
 }
 
 function loadTable(){
     const value = document.getElementById("value").value
-    const products = fetch(URL + "/s/" + value).then(response => response.json())
+    const products = fetch(URL + value).then(response => response.json())
 
     products.then(products => {
 
