@@ -8,8 +8,15 @@
     flex-direction: column;
 }
 
+#topnav{
+    text-align: center;
+    margin-top: 30px;
+
+    margin-bottom: 30px;
+}
+
 .dropbtn {
-    background-color: dodgerblue;
+    background-color: seagreen;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -46,4 +53,4 @@
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color: steelblue;}
+.dropdown:hover .dropbtn {background-color: darkgreen;}

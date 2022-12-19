@@ -2,6 +2,7 @@
 <head>
     <link rel="stylesheet" href="index.css"/>
     <script src = "index.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"></script>
     <title>Title</title>
 </head>
 <body>
@@ -9,30 +10,27 @@
             <div class="dropdown">
                 <button class="dropbtn">Hjem</button>
                 <div class="dropdown-content">
-                    <a href="/showMyDeliveries">Vis mine leveringer</a>
+                    <a href="/showMyDeliveries" data-navigo>Vis mine leveringer</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropbtn">Produkter</button>
                 <div class="dropdown-content">
-                    <a href="/showProduct">Vis produkter</a>
-                    <a href="/addProduct">Tilføj produkter</a>
-                    <a href="/editProducts">Rediger produkter</a>
-                    <a href="/showSpecProduct">Vis specifik produkt</a>
-                    <a href="/deleteProduct">Slet produkt</a>
-
+                    <a href="/showProducts" data-navigo>Vis produkter</a>
+                    <a href="/addProduct" data-navigo>Tilføj produkter</a>
+                    <a href="/editProduct" data-navigo>Rediger produkter</a>
+                    <a href="/showSpecProduct" data-navigo>Vis specifikke produkter</a>
+                    <a href="/deleteProduct" data-navigo>Slet produkt</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropbtn">Leveringer</button>
                 <div class="dropdown-content">
-                    <a href="/showDeliveries">Vis leveringer</a>
-                    <a href="/addDelivery">Tilføj levering</a>
+                    <a href="/showDeliveries" data-navigo>Vis leveringer</a>
+                    <a href="/addDelivery" data-navigo>Tilføj levering</a>
                 </div>
             </div>
     </div>
-
-
 <div id="content"></div>
 </body>
 </html>
