@@ -3,6 +3,7 @@ export function initAddDelivery(){
     hideDiv()
     addDelivery()
     addProduct()
+    reload()
 }
 
 const URL = "http://localhost:8080/delivery"
@@ -56,19 +57,31 @@ function addProduct(){
 
         const newProductOrder = {};
 
-        newProductOrder.quantity = DOMPurify.sanitize(document.getElementById("quantity").value)
-        newProductOrder.product = DOMPurify.sanitize(document.getElementById("name").value)
+        const quantity = DOMPurify.sanitize(document.getElementById("quantity").value)
+        const product = DOMPurify.sanitize(document.getElementById("name").value)
 
-        const delivery = fetch(URL + "/" + destination).then(response => response.json())
-        console.log(delivery)
-        const id = delivery.at(0)
-        console.log(id)
+        const delivery = await fetch(URL + "/" + destination).then(response => response.json())
+        const id = delivery.id
         const options = {};
 
-        options.method = "PATCH"
+        options.method = "POST"
         options.headers = { "Content-type": "application/json" }
         options.body = JSON.stringify(newProductOrder)
 
-        fetch(URL + "/" + id, options)
+        await fetch(URL + "/" + id + "/" + product + "/" + quantity, options)
+
+        const updatedDelivery = await fetch(URL + "/" + destination).then(response => response.json())
+
+        document.getElementById("totalPrice").innerText = "Pris: " + updatedDelivery.totalPrice + " kr."
+        document.getElementById("totalWeight").innerText = "Samlet vægt: " + updatedDelivery.totalWeight / 1000 + " kg."
+        document.getElementById("name").value = ""
+        document.getElementById("quantity").value = ""
+
+    }
+}
+
+function reload(){
+    document.getElementById("exit").onclick = function () {
+        location.reload()
     }
 }
