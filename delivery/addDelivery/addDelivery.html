@@ -1,0 +1,59 @@
+<div class="template">
+  <link rel="stylesheet" href="delivery/addDelivery/addDelivery.css"/>
+
+  <div id="addDelivery-page">
+    <div id="inputs">
+
+      <label for=""> Vælg varehus: </label>
+      <select id="fromWareHouse">
+        <option value="Varehus 1">Varehus 1</option>
+        <option value="Varehus 2">Varehus 2</option>
+        <option value="Varehus 3">Varehus 3</option>
+
+      </select>
+
+      <label for=""> Leveringsoplysninger:
+        <input id="destination" type="text">
+      </label>
+    </div>
+
+    <div id="create-button">
+      <button id="create">Opret levering</button>
+    </div>
+  </div>
+
+  <div id="add-product-page">
+
+    <div id="specifik-product">
+
+      <div id="search">
+
+        <div id="add-product">
+          <table id="table">
+            <thead id="thead">
+            <tr id="tr">
+              <th class="th">Vare</th>
+              <th class="th">Pris</th>
+              <th>Vægt</th>
+            </tr>
+            </thead>
+            <tbody id="tbl-products">
+
+            </tbody>
+          </table>
+
+          <div id="add-button">
+            <label for=""> Indtast ønskede vare til levering:
+            <input id="name" type="text">
+            </label>
+            <label for=""> Antal:
+              <input id="quantity" type="number">
+            </label>
+            <button id="add">Tilføj</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

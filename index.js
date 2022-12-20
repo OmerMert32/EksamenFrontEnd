@@ -8,6 +8,8 @@ import {initAddProduct} from "./product/addProduct/addProduct.js";
 import {initEditProduct} from "./product/editProduct/editProduct.js";
 import {initSpecefikProduct} from "./product/specifikProduct/specifikProduct.js";
 import {initDeleteProduct} from "./product/deleteProduct/deleteProduct.js";
+import {initShowDeliveries} from "./delivery/showDeliveries/showDeliveries.js";
+import {initAddDelivery} from "./delivery/addDelivery/addDelivery.js";
 
 
 window.addEventListener("load", async () => {
@@ -18,6 +20,9 @@ window.addEventListener("load", async () => {
     const templateEditProduct = await loadHtml("product/editProduct/editProduct.html")
     const templateSpecifikProdukt = await loadHtml("product/specifikProduct/specifikProduct.html")
     const templateDeleteProduct = await loadHtml("product/deleteProduct/deleteProduct.html")
+    const templateShowDeliveries = await loadHtml("delivery/showDeliveries/showDeliveries.html")
+    const templateAddDelivery = await loadHtml("delivery/addDelivery/addDelivery.html")
+    const templateAddProductToDelivery = await loadHtml("delivery/addDelivery/addProductsToDelivery.html")
     //const templateNotFound = await loadHtml("notfound/notfound.html")
 
     adjustForMissingHash()
@@ -50,15 +55,15 @@ window.addEventListener("load", async () => {
             "/deleteProduct": (match) => {renderTemplate(templateDeleteProduct, "content")
                 initDeleteProduct()
             },
+            "/showDeliveries": (match) => {renderTemplate(templateShowDeliveries, "content")
+                initShowDeliveries()
+            },
+            "/addDelivery": (match) => {renderTemplate(templateAddDelivery, "content")
+                initAddDelivery();
+            },
         })
         .notFound(() => {
             renderTemplate(templateNotFound, "content")
         })
         .resolve()
 });
-
-
-window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
-    alert('Error: ' + errorMsg + ' Script: ' + url + ' Line: ' + lineNumber
-        + ' Column: ' + column + ' StackTrace: ' + errorObj);
-}

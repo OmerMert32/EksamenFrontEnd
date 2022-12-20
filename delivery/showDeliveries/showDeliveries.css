@@ -1,0 +1,20 @@
+#table {
+    font-size: 0.9em;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+#tr{
+    background-color: seagreen;
+    color: white;
+    text-align: left;
+    border-bottom: 2px solid dimgrey;
+}
+
+.th,td {
+    padding: 12px 15px;
+    border-bottom: 1px solid grey;
+}
