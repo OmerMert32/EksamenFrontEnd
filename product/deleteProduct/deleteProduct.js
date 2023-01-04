@@ -12,33 +12,28 @@ function hideDiv(){
 }
 
 function showDiv(){
-    document.getElementById("find-button").onclick = function(){
+    let table = document.getElementById("tbl-products")
 
-        loadTable()
+    let row = table.insertRow(0)
+
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+
+    document.getElementById("find-button").onclick = async function() {
+        const value = document.getElementById("value").value
+        let products = await fetch(URL + "/" + value).then(response => response.json())
+
+
+        cell1.innerHTML = products.name
+        cell2.innerHTML = products.price + " kr."
+        cell3.innerHTML = products.weight + " g."
+
 
         document.getElementById("delete-product").style = "display"
     }
 }
 
-function loadTable(){
-    const value = document.getElementById("value").value
-    const products = fetch(URL + "/s/" + value).then(response => response.json())
-
-    console.log(products)
-    products.then(products => {
-
-        const tablerows = products.map(p => `
-    <tr>
-        <td>${p.name}</td>
-        <td>${p.price} kr.</td>
-        <td>${p.weight} g.</td>
-    </tr>
-    `).join("")
-
-        document.getElementById("tbl-products").innerHTML = tablerows
-
-    }).catch(e => console.log(e))
-}
 
 function deleteProduct(){
     document.getElementById("delete").onclick = function () {
@@ -51,5 +46,7 @@ function deleteProduct(){
         options.headers = {"Content-type": "application/json"}
 
         fetch(URL + "/" + name, options)
+
+        location.reload()
     }
 }

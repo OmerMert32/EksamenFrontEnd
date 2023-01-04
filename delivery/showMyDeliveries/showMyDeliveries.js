@@ -7,13 +7,13 @@ const URL = "http://localhost:8080/delivery"
 function loadTabels(){
     document.getElementById("table").style = "display:none"
     document.getElementById("table-products").style = "display:none"
-    document.getElementById("search").onclick =  async function () {
+    document.getElementById("search").onclick = function () {
 
         const destination = DOMPurify.sanitize(document.getElementById("destination").value)
 
         const delivery = fetch(URL + "/s/" + destination).then(response => response.json())
 
-        console.log(delivery)
+
         delivery.then(products => {
             const tablerows = products.map(d => `
     <tr>
@@ -26,12 +26,14 @@ function loadTabels(){
         }).catch(e => console.log(e))
 
 
+
+
         delivery.then(products => {
             const tablerows = products.map(d => `
     <tr>
-        <td>${d.productOrder.name}</td>
-        <td>${d.productOrder.weight}</td>
-        <td>${d.productOrder.quantity}</td>
+        <td>${d.name}</td>
+        <td>${d.weight}</td>
+        <td>${d.quantity}</td>
 
     </tr>
     `).join("")
@@ -40,8 +42,11 @@ function loadTabels(){
 
         }).catch(e => console.log(e))
 
+
+
         document.getElementById("table").style = "display"
         document.getElementById("table-products").style = "display"
 
     }
 }
+
